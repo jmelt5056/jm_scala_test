@@ -2,10 +2,10 @@ name: Psalm Static analysis
 
 on:
   push:
-    branches: [2.8.x]
+    branches: ["2.8.x"]
   pull_request:
     # The branches below must be a subset of the branches above
-    branches: [2.8.x]
+    branches: ["2.8.x"]
     
 jobs:
   psalm:
@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       actions: read
-      contents: read
+      contents: write
       security-events: write   
 
     steps:
@@ -24,6 +24,7 @@ jobs:
     - name: Psalm
       uses: 'docker://vimeo/psalm-github-actions'
       with:
+       relative_dir: ./
        composer_ignore_platform_reqs: true
        composer_require_dev: false
        security_analysis: true
