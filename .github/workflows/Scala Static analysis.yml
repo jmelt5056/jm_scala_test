@@ -21,7 +21,7 @@ jobs:
       uses: actions/checkout@v3
 
       # Initializes Scala for scanning.
-    - name: Psalm
+    - name: Scala BetterScan Community Edition
       uses: topcodersonline/betterscan@v3
       
     - name: Upload Security Analysis results to GitHub
