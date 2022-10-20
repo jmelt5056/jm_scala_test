@@ -20,7 +20,12 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-      # Initializes Psalm for scanning.
+      # Initializes Scala for scanning.
     - name: Psalm
       uses: topcodersonline/betterscan@v3
+      
+    - name: Upload Security Analysis results to GitHub
+      uses: github/codeql-action/upload-sarif@v2
+      with:
+       sarif_file: results.sarif
 
